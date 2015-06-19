@@ -1,0 +1,42 @@
+<template name="form">
+	<div class="col-md-6">
+		<h1>Main Form</h1>
+		<br/>
+		<p>Include "http:// please"</p>
+		<form id="mainform">
+			<input type="text" name="projectname" placeholder="Project name .."><br/><br/>
+			<input type="text" name="firstname" placeholder="First name .."><br/><br/>
+			<input type="text" name="lastname" placeholder="Last name .."><br/><br/>
+			<input type="text" name="depproject" placeholder="Deployed project .."><br/><br/>
+			<input type="text" name="gitrepo" placeholder="Github repo .."><br/><br/>
+			<input type="submit" class="btn btn-primary" value="Submit!"><br/><br/>
+		</form>
+	</div>
+	<div class="col-md-6">
+		{{> maintable}}
+	</div>
+</template>
+
+<template name="maintable">
+	<table class="table table-hover">
+		<thead>
+			<th>Project Name</th><th>First Name</th><th>Last Name</th><th>Deployed Project</th><th>Github repo</th><th></th>
+		</thead>
+		<tbody>
+			{{#each proj}}
+				{{> maintablerow}}
+            {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="maintablerow">
+	<tr>
+		<td>{{projectname}}</td>
+		<td>{{firstname}}</td>
+		<td>{{lastname}}</td>
+		<td><a href="{{depproject}}" target="_blank">{{depproject}}</a></td>
+		<td><a href="{{gitrepo}}" target="_blank">{{gitrepo}}</a></td>
+		<td><button class="btn btn-default jbs-quiz-del"><i class="fa fa-trash-o"></i></button></td>
+	</tr>
+</template>
